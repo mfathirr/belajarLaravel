@@ -3,14 +3,15 @@
 <div class="mt-5 mx-auto" style="width: 380px">
     <div class="card">
         <div class="card-body">
-            <form action="#">
+            <form action="{{url('/tasks/')}}" method="POST">
+                @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">User</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="user">
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Task</label>
-                    <textarea class="form-control" id="" rows="3"></textarea>
+                    <textarea class="form-control" id="" rows="3" name="task"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
