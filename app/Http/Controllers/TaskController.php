@@ -16,12 +16,18 @@ class TaskController extends Controller
             return $task;
         }
         $task = Task::all();
-        return $task;
+        return view('task.index', [
+            'data' => $task
+        ]);
     }
 
     public function show($id) {
         $task = Task::find($id);
         return $task;
+    }
+
+    public function create(){
+        return view('task.create');
     }
 
     public function store(Request $request) {
@@ -32,6 +38,10 @@ class TaskController extends Controller
             'user' => $request->user
         ]);
         return 'Sukses';
+    }
+
+    public function edit($id) {
+        return view('task.edit');
     }
 
     public function update(Request $request,$id){
